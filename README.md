@@ -18,8 +18,6 @@ Skup podataka sadrži opis odabranih fakulteta Sveučilišta u Zagrebu, uključu
   - `established_year` — godina osnutka
   - `website` — službena web stranica
   - `address.street`, `address.city`, `address.postal_code` — adresa
-  - `contact.phone`, `contact.email` — kontakt podaci
-  - `stats.num_students`, `stats.num_staff` — osnovna statistika
   - `departments` — lista odjela 
 - **Format datoteka:** CSV (`fakulteti_unizg.csv`) i JSON (`fakulteti_unizg.json`)
 - **Broj instanci:** 10 fakulteta (s više odjela ukupno 15 redova u CSV)
