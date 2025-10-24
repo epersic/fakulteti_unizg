@@ -1,0 +1,21 @@
+id,name,short_name,established_year,website,address_street,address_city,postal_code,university,id,faculty_id,dept_name
+1,Faculty of Agriculture,AGR,1925,https://www.agr.unizg.hr,Svetosimunska 25,Zagreb,10000,Sveuciliste u Zagrebu,21,1,Department of Agronomy
+1,Faculty of Agriculture,AGR,1925,https://www.agr.unizg.hr,Svetosimunska 25,Zagreb,10000,Sveuciliste u Zagrebu,22,1,Department of Animal Science
+2,Faculty of Architecture,ARH,1919,https://www.arhitekt.unizg.hr,Fra Andrije Kacica Miosica 26,Zagreb,10000,Sveuciliste u Zagrebu,23,2,Department of Architectural Design
+2,Faculty of Architecture,ARH,1919,https://www.arhitekt.unizg.hr,Fra Andrije Kacica Miosica 26,Zagreb,10000,Sveuciliste u Zagrebu,24,2,Department of Urban and Spatial Planning
+3,Faculty of Electrical Engineering and Computing,FER,1956,https://www.fer.unizg.hr,Unska 3,Zagreb,10000,Sveucilište u Zagrebu,25,3,"Department of Electronics, Microelectronics, Computer and Intelligent Systems"
+3,Faculty of Electrical Engineering and Computing,FER,1956,https://www.fer.unizg.hr,Unska 3,Zagreb,10000,Sveucilište u Zagrebu,26,3,Department of Telecommunications
+4,Faculty of Science,PMF,1946,https://www.pmf.unizg.hr,Horvatovac 102a,Zagreb,10000,Sveucilište u Zagrebu,27,4,Department of Mathematics
+4,Faculty of Science,PMF,1946,https://www.pmf.unizg.hr,Horvatovac 102a,Zagreb,10000,Sveucilište u Zagrebu,28,4,Department of Physics
+5,Faculty of Economics and Business,EFZG,1920,https://www.efzg.unizg.hr,Trg J.F. Kennedyja 6,Zagreb,10000,Sveucilište u Zagrebu,29,5,Department of Management
+5,Faculty of Economics and Business,EFZG,1920,https://www.efzg.unizg.hr,Trg J.F. Kennedyja 6,Zagreb,10000,Sveucilište u Zagrebu,30,5,Department of Marketing
+6,Faculty of Civil Engineering,GFSB,1919,https://www.grad.unizg.hr,Vukovarska 58,Zagreb,10000,Sveucilište u Zagrebu,32,6,Department of Geotechnical Engineering
+6,Faculty of Civil Engineering,GFSB,1919,https://www.grad.unizg.hr,Vukovarska 58,Zagreb,10000,Sveucilište u Zagrebu,31,6,Department of Structural Engineering
+7,Catholic Faculty of Theology,KBF,1227,https://www.kbf.unizg.hr,Vlaška 38,Zagreb,10000,Sveucilište u Zagrebu,33,7,Department of Fundamental Theology
+7,Catholic Faculty of Theology,KBF,1227,https://www.kbf.unizg.hr,Vlaška 38,Zagreb,10000,Sveucilište u Zagrebu,34,7,Department of Pastoral Theology
+8,Faculty of Chemical Engineering and Technology,FKIT,1919,https://www.fkit.unizg.hr,Marulicev trg 19,Zagreb,10000,Sveucilište u Zagrebu,35,8,Department of Chemical Engineering
+8,Faculty of Chemical Engineering and Technology,FKIT,1919,https://www.fkit.unizg.hr,Marulicev trg 19,Zagreb,10000,Sveucilište u Zagrebu,36,8,Department of Organic Chemistry
+9,Faculty of Political Science,FPZG,1962,https://www.fpzg.unizg.hr,Lepusiceva ul. 6,Zagreb,10000,Sveucilište u Zagrebu,37,9,Department of Journalism
+9,Faculty of Political Science,FPZG,1962,https://www.fpzg.unizg.hr,Lepusiceva ul. 6,Zagreb,10000,Sveucilište u Zagrebu,38,9,Department of Political Theory
+10,Faculty of Humanities and Social Sciences,FFZG,1874,https://www.ffzg.unizg.hr,Krvavac 3,Zagreb,10000,Sveucilište u Zagrebu,40,10,Department of History
+10,Faculty of Humanities and Social Sciences,FFZG,1874,https://www.ffzg.unizg.hr,Krvavac 3,Zagreb,10000,Sveucilište u Zagrebu,39,10,Department of Philosophy

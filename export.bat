@@ -1,0 +1,5 @@
+@echo off
+@"C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d fakulteti_unizg -c "\copy (SELECT json_build_object('fakulteti_unizg', json_agg(json_build_object('id', f.id, 'name', f.name, 'short_name', f.short_name, 'established_year', f.established_year, 'website', f.website, 'address_street', f.address_street, 'address_city', f.address_city, 'postal_code', f.postal_code, 'Departments', (SELECT json_agg(json_build_object('dept_name', d.dept_name)) FROM departments AS d WHERE d.faculty_id = f.id)))) FROM faculties AS f) TO '.\\fakulteti_unizg.json';"
+echo "json file saved"
+@"C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d fakulteti_unizg -c "\copy (SELECT * FROM faculties as f JOIN departments as d ON d.faculty_id = f.id ORDER BY f.id, d.dept_name) TO '.\\fakulteti_unizg.csv' DELIMITER ',' CSV HEADER;"
+echo "csv file saved"
