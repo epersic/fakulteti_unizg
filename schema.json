@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "fakulteti_unizg": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "short_name": {
+            "type": "string"
+          },
+          "established_year": {
+            "type": "number"
+          },
+          "website": {
+            "type": "string"
+          },
+          "address_street": {
+            "type": "string"
+          },
+          "address_city": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          },
+          "Departments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dept_name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dept_name"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "short_name",
+          "established_year",
+          "website",
+          "address_street",
+          "address_city",
+          "postal_code",
+          "Departments"
+        ]
+      }
+    }
+  },
+  "required": [
+    "fakulteti_unizg"
+  ]
+}

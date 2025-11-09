@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Fakulteti UNIZG - Index</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <h1>Fakulteti UNIZG - Home</h1>
+    <section id="readme" class="file-links">
+      <hr>
+      <h2>Fakulteti Sveučilišta u Zagrebu (fakulteti_unizg)</h2>
+      <p><em>Otvoreni skup podataka fakulteta Sveučilišta u Zagrebu</em></p>
+
+      <h3>Kratki opis</h3>
+      <p>Skup podataka sadrži opis odabranih fakulteta Sveučilišta u Zagrebu, uključujući osnovne kontakt podatke, statistiku (broj studenata i zaposlenih) te popis glavnih odjela/studija (roditelj-dijete veza). Podaci su uzeti s službenih stranica navedenih fakulteta.</p>
+
+      <h3>Metapodaci</h3>
+      <ul>
+        <li><strong>Licenca:</strong> Creative Commons Attribution 4.0 International (CC BY 4.0)</li>
+        <li><strong>Autor:</strong> Eno Peršić</li>
+        <li><strong>Verzija:</strong> 1.0</li>
+        <li><strong>Jezik:</strong> engleski</li>
+        <li><strong>Datum izrade:</strong> 2025-10-22</li>
+        <li><strong>Opis atributa:</strong>
+          <ul>
+            <li><code>id</code> — jedinstveni identifikator fakulteta</li>
+            <li><code>name</code> — naziv fakulteta</li>
+            <li><code>short_name</code> — kratki naziv</li>
+            <li><code>established_year</code> — godina osnutka</li>
+            <li><code>website</code> — službena web stranica</li>
+            <li><code>address.street</code>, <code>address.city</code>, <code>address.postal_code</code> — adresa</li>
+            <li><code>departments</code> — lista odjela</li>
+          </ul>
+        </li>
+        <li><strong>Format datoteka:</strong> CSV (<code>fakulteti_unizg.csv</code>) i JSON (<code>fakulteti_unizg.json</code>)</li>
+      </ul>
+
+      <h3>Datoteke u repozitoriju</h3>
+      <ul>
+        <li><code>fakulteti_unizg.csv</code> — CSV verzija (rod-dij odnos ponovljenim redovima)</li>
+        <li><code>fakulteti_unizg.json</code> — JSON verzija (svaki fakultet kao objekt s poljem <code>departments</code>)</li>
+        <li><code>database_dump.sql</code> — Dump baze podataka</li>
+        <li><code>export.bat</code> — skripta za automatizirano stvaranje .json i .cvs datoteke iz baze podataka</li>
+      </ul>
+
+      <p><a class="link" href="/README.md" download>Download README.md</a></p>
+    </section>
+    <p><a href="/datatables.html">Open DataTables-style filter page</a></p>
+    <h2>Example downloads</h2>
+    <ul>
+      <li><a href="/files/fakulteti_unizg.csv" download>Download example CSV</a></li>
+      <li><a href="/files/fakulteti_unizg.json" download>Download example JSON</a></li>
+    </ul>
+  </main>
+</body>
+</html>
