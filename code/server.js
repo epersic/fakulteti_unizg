@@ -8,10 +8,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// serve static files from public
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Postgres pool (defaults to given credentials, but can be overridden with env vars)
+
 const pool = new Pool({
   host: process.env.PGHOST || '127.0.0.1',
   port: process.env.PGPORT || 5432,
@@ -21,10 +21,10 @@ const pool = new Pool({
   max: 10
 });
 
-// Helper to build WHERE clauses safely
+
 function buildFilters(q, params) {
   const conditions = [];
-  // text columns: name, short_name, website, address_street, address_city, postal_code, university
+
   const textCols = ['name','short_name','website','address_street','address_city','postal_code','university'];
   textCols.forEach(col => {
     if (q[col]) {
@@ -32,12 +32,12 @@ function buildFilters(q, params) {
       conditions.push(`${col} ILIKE $${params.length}`);
     }
   });
-  // integer column: established_year
+ 
   if (q.established_year) {
     params.push(parseInt(q.established_year, 10));
     conditions.push(`established_year = $${params.length}`);
   }
-  // id exact
+
   if (q.id) {
     params.push(parseInt(q.id, 10));
     conditions.push(`id = $${params.length}`);
@@ -45,7 +45,7 @@ function buildFilters(q, params) {
   return conditions.length ? ('WHERE ' + conditions.join(' AND ')) : '';
 }
 
-// GET /api/faculties?name=...&format=json|csv
+
 app.get('/api/faculties', async (req, res) => {
   try {
     const q = req.query || {};
@@ -56,7 +56,7 @@ app.get('/api/faculties', async (req, res) => {
     const { rows: faculties } = await pool.query(facultiesSql, params);
 
     if (!faculties.length) {
-      // return empty JSON or empty CSV
+      
       if (q.format === 'csv') {
         res.setHeader('Content-Type', 'text/csv');
         return res.send('');
@@ -64,21 +64,21 @@ app.get('/api/faculties', async (req, res) => {
       return res.json([]);
     }
 
-    // fetch departments for selected faculties
+   
     const facultyIds = faculties.map(f => f.id);
     const { rows: departments } = await pool.query(
       `SELECT id, faculty_id, dept_name FROM departments WHERE faculty_id = ANY($1::int[]) ORDER BY id`,
       [facultyIds]
     );
 
-    // group departments by faculty_id
+  
     const byFaculty = {};
     departments.forEach(d => {
       if (!byFaculty[d.faculty_id]) byFaculty[d.faculty_id] = [];
       byFaculty[d.faculty_id].push({ dept_id: d.id, dept_name: d.dept_name });
     });
 
-    // assemble JSON structure
+  
     const result = faculties.map(f => ({
       id: f.id,
       name: f.name,
@@ -93,7 +93,7 @@ app.get('/api/faculties', async (req, res) => {
     }));
 
     if (q.format === 'csv') {
-      // produce flattened CSV similar to sample: one row per department
+
       const headers = [
         'id','name','short_name','established_year','website','address_street','address_city','postal_code','university','dept_name'
       ];
@@ -126,7 +126,7 @@ app.get('/api/faculties', async (req, res) => {
   }
 });
 
-// small health endpoint
+
 app.get('/health', (req, res) => res.json({ ok: true }));
 
 const port = process.env.PORT || 3000;
