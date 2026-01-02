@@ -1,0 +1,219 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fakulteti Sveučilišta u Zagrebu API",
+    "description": "REST API za pristup podacima o fakultetima i njihovim odsjecima.",
+    "version": "1.0.0",
+    "license": {
+      "name": "CC0 1.0 Universal",
+    }
+  },
+  "paths": {
+    "/api/faculties": {
+      "get": {
+        "summary": "Dohvat svih fakulteta",
+        "responses": {
+          "200": {
+            "description": "Lista fakulteta",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacultyListResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Dodavanje novog fakulteta",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Faculty"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Fakultet uspješno dodan"
+          }
+        }
+      }
+    },
+
+    "/api/faculties/{id}": {
+      "get": {
+        "summary": "Dohvat fakulteta prema ID-u",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Fakultet pronađen" },
+          "404": { "description": "Fakultet nije pronađen" }
+        }
+      },
+      "put": {
+        "summary": "Ažuriranje fakulteta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Fakultet ažuriran" }
+        }
+      },
+      "delete": {
+        "summary": "Brisanje fakulteta",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Fakultet obrisan" }
+        }
+      }
+    },
+
+    "/api/faculties/{id}/departments": {
+      "get": {
+        "summary": "Dohvat odsjeka za fakultet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista odsjeka"
+          }
+        }
+      }
+    },
+
+    "/api/faculties/city/{city}": {
+      "get": {
+        "summary": "Dohvat fakulteta po gradu",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista fakulteta"
+          }
+        }
+      }
+    },
+
+    "/api/faculties/established/before/{year}": {
+      "get": {
+        "summary": "Fakulteti osnovani prije godine",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista fakulteta"
+          }
+        }
+      }
+    },
+
+    "/api/departments": {
+      "get": {
+        "summary": "Dohvat svih odsjeka",
+        "responses": {
+          "200": {
+            "description": "Lista odsjeka"
+          }
+        }
+      }
+    },
+
+    "/api/departments/{id}": {
+      "get": {
+        "summary": "Dohvat odsjeka po ID-u",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Odsjek pronađen" }
+        }
+      }
+    },
+
+    "/api/openapi": {
+      "get": {
+        "summary": "Dohvat OpenAPI specifikacije",
+        "responses": {
+          "200": {
+            "description": "OpenAPI JSON dokument"
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "Faculty": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "short_name": { "type": "string" },
+          "established_year": { "type": "integer" },
+          "website": { "type": "string" },
+          "address_street": { "type": "string" },
+          "address_city": { "type": "string" },
+          "postal_code": { "type": "string" },
+          "university": { "type": "string" }
+        }
+      },
+      "FacultyListResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "response": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Faculty" }
+          }
+        }
+      }
+    }
+  }
+}
+
