@@ -74,7 +74,7 @@ document.getElementById('downloadCsv').addEventListener('click', async ()=>{
   URL.revokeObjectURL(url);
 });
 
-// initial load
+
 (async ()=>{
   const data = await fetchResults('json');
   renderTable(data);

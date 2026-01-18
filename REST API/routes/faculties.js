@@ -12,7 +12,27 @@ const wrap = (data) => ({
 router.get('/', async (req, res, next) => {
   try {
     const { rows } = await pool.query('SELECT * FROM faculties');
-    res.json(wrap(rows));
+    
+    
+    const semanticData = rows.map(faculty => ({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": faculty.website || `https://example.com/faculty/${faculty.id}`,
+      "id": faculty.id,
+      "name": faculty.name,
+      "url": faculty.website,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": faculty.address_street,
+        "addressLocality": faculty.address_city,
+        "postalCode": faculty.postal_code
+      },
+      "foundingDate": String(faculty.established_year),
+      "short_name": faculty.short_name,
+      "university": faculty.university
+    }));
+    
+    res.json(semanticData);
   } catch (err) {
     next(err);
   }
@@ -33,7 +53,27 @@ router.get('/:id', async (req, res, next) => {
         response: null
       });
 
-    res.json(wrap(rows[0]));
+    
+    const faculty = rows[0];
+    const semanticData = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": faculty.website || `https://example.com/faculty/${faculty.id}`,
+      "id": faculty.id,
+      "name": faculty.name,
+      "url": faculty.website,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": faculty.address_street,
+        "addressLocality": faculty.address_city,
+        "postalCode": faculty.postal_code
+      },
+      "foundingDate": String(faculty.established_year),
+      "short_name": faculty.short_name,
+      "university": faculty.university
+    };
+    
+    res.json(semanticData);
   } catch (err) {
     next(err);
   }
